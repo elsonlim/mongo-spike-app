@@ -20,7 +20,7 @@ class App extends React.Component {
     render() {
         return(
             <div className="App" >
-                <Header lat={this.state.lat} lng={this.state.lng}></Header>
+                <Header lat={this.state.lat} lng={this.state.lng} setPosition={this.setPosition}></Header>
                 <Map lat={this.state.lat} lng={this.state.lng} setPosition={this.setPosition}></Map>
             </div>
         );
