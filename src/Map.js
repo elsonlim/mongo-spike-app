@@ -13,6 +13,10 @@ class Map extends React.Component {
         this.props.setPosition(position.coords.latitude, position.coords.longitude);
     }
 
+    handleClick = (event) => {
+        this.props.setPosition(event.latLng.lat(), event.latLng.lng());
+    }
+
     render() {
         return (
             <LoadScript id="script-loader"
@@ -26,7 +30,8 @@ class Map extends React.Component {
                     center={{
                         lat: this.props.lat,
                         lng: this.props.lng
-                    }}>
+                    }}
+                    onClick={this.handleClick}>
                     <Marker
                         onLoad={marker => {
                             console.log(`Marker Position: [${marker.position.lat()}, ${marker.position.lng()}]`);
