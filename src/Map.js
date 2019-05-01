@@ -3,16 +3,6 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import './Map.css';
 
 class Map extends React.Component {
-    componentDidMount() {
-        if (window.navigator.geolocation) {
-            window.navigator.geolocation.getCurrentPosition(this.showPosition);
-        }
-    }
-
-    showPosition = (position) => {
-        this.props.setPosition(position.coords.latitude, position.coords.longitude);
-    }
-
     handleClick = (event) => {
         this.props.setPosition(event.latLng.lat(), event.latLng.lng());
     }

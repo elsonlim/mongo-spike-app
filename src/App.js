@@ -4,13 +4,22 @@ import Map from './Map';
 import './App.css';
 
 class App extends React.Component {
-    constructor() {
-        super();
+    componentDidMount() {
+        if (window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(this.showPosition);
+        } else {
+            this.setState({
+                lat: 1.3521,
+                lng: 103.8198
+            });
+        }
+    }
 
-        this.state = {
-            lat: 1.3521,
-            lng: 103.8198
-        };
+    showPosition = (position) => {
+        this.setState({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        });
     }
 
     setPosition = (lat, lng) => {
@@ -18,6 +27,10 @@ class App extends React.Component {
     }
 
     render() {
+        if (!this.state) {
+            return <div className="App">Loading...</div>
+        }
+
         return(
             <div className="App" >
                 <Header lat={this.state.lat} lng={this.state.lng} setPosition={this.setPosition}></Header>
