@@ -1,14 +1,30 @@
 import React from 'react';
-import './App.css';
+import Header from './Header';
 import Map from './Map';
+import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1 className="Header">HEADER</h1>
-      <Map className="Map"></Map>
-    </div>
-  );
+class App extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            lat: 1.3521,
+            lng: 103.8198
+        };
+    }
+
+    setPosition = (lat, lng) => {
+        this.setState({lat, lng})
+    }
+
+    render() {
+        return(
+            <div className="App" >
+                <Header lat={this.state.lat} lng={this.state.lng}></Header>
+                <Map lat={this.state.lat} lng={this.state.lng} setPosition={this.setPosition}></Map>
+            </div>
+        );
+    }
 }
 
 export default App;

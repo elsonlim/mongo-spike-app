@@ -1,0 +1,63 @@
+.Header {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.Header span {
+    font-weight: 600;
+}
+
+.Header button {
+    background-color: #ff9e66;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.Header button:hover {
+    background-color: #ff8100;
+    cursor: pointer;
+}
+
+.Header button:focus {
+    outline: 0;
+}
+
+.Header input {
+    border: 2px solid #ff8100;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.Header input:focus {
+    box-shadow: 0 0 2px 0 #ff8100;
+    outline: 0;
+}
+
+.Title {
+    border-bottom: 2px solid #ff8100;
+    font-size: x-large;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.Control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.Label {
+    font-weight: normal;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.Label:first-child {
+    padding-left: 0;
+}
